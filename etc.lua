@@ -1,4 +1,4 @@
-isRes = true
+isRes = false
 mode = "train"
 modelName = "model_res_56.net"
 

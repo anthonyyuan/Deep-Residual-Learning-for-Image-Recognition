@@ -22,7 +22,7 @@ dofile "test.lua"
 if mode == "train" then
     trainData, trainLabel = load_data("train")
     testData, testLabel = load_data("test")
-    fp_err = io.open("loss.txt","a")
+    fp_err = io.open("result/loss.txt","a")
     while tot_iter <= 64e3 do
         train(trainData, trainLabel)
         err = tot_error/cnt_error

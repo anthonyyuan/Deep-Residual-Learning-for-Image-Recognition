@@ -8,8 +8,8 @@ dofile 'etc.lua'
 model = nn.Sequential()
 fNum = {inputDim,16,32,64}
 
-model:add(cudnn.normalConv(inputDim,16,kernelSz,kernelSz,1,1,(kernelSz-1)/2,(kernelSz-1)/2,0,math.sqrt(2/16)))
-model:add(nn.SpatialBatchNormalization(16))
+model:add(cudnn.normalConv(inputDim,16,kernelSz,kernelSz,1,1,(kernelSz-1)/2,(kernelSz-1)/2,0,math.sqrt(2/(kernelSz*kernelSz*inputDim))))
+model:add(nn.SpatialBatchNormalization(16,false))
 model:add(nn.ReLU(true))
 
 prevDim = 16
@@ -26,8 +26,8 @@ for lid = 1,6*n do
        str = 1
    end
    
-    subModel:add(cudnn.normalConv(iDim,oDim,kernelSz,kernelSz,str,str,(kernelSz-1)/2,(kernelSz-1)/2,0,math.sqrt(2/oDim)))
-    subModel:add(nn.SpatialBatchNormalization(oDim))
+    subModel:add(cudnn.normalConv(iDim,oDim,kernelSz,kernelSz,str,str,(kernelSz-1)/2,(kernelSz-1)/2,0,math.sqrt(2/(kernelSz*kernelSz*iDim))))
+    subModel:add(nn.SpatialBatchNormalization(oDim,false))
     
     if lid%2 == 0 then
         curDim = oDim
@@ -62,7 +62,7 @@ end
 model:add(nn.SpatialAveragePooling(8,8))
 
 model:add(nn.View(64):setNumInputDims(3))
-model:add(nn.normalLinear(64,outputDim,0,math.sqrt(2/outputDim)))
+model:add(nn.normalLinear(64,outputDim,0,math.sqrt(2/64)))
 
 
 model:add(nn.LogSoftMax())

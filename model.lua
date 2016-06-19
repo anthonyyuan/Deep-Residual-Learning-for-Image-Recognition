@@ -59,7 +59,7 @@ for lid = 1,6*n do
 end
 
 
-model:add(nn.SpatialAveragePooling(8,8))
+model:add(nn.SpatialAveragePooling(inputSz/4,inputSz/4))
 
 model:add(nn.View(64):setNumInputDims(3))
 model:add(nn.normalLinear(64,outputDim,0,math.sqrt(2/64)))

@@ -1,8 +1,8 @@
 require 'torch'
 require 'nn'
 require 'cudnn'
-require 'normalConv'
-require 'normalLinear'
+require 'module/normalConv'
+require 'module/normalLinear'
 dofile 'etc.lua'
 
 model = nn.Sequential()

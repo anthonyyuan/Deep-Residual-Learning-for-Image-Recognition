@@ -121,7 +121,7 @@ function train(trainData, trainLabel)
         --print("\n==> time to learn 1 sample = " .. (time*1000) .. 'ms')
 
         --print(confusion, tot_iter)
-        if tot_iter == 64e3 then
+        if tot_iter == iterLimit then
             local filename = paths.concat(save_dir, 'model.net')
             os.execute('mkdir -p ' .. sys.dirname(filename))
             print('==> saving model to '..filename)

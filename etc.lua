@@ -21,5 +21,5 @@ wDecay = 1e-4
 mmt = 9e-1
 batchSz = 128
 testBatchSz = 2e3
-
+iterLimit = 64e3
 

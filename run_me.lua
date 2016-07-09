@@ -23,7 +23,7 @@ if mode == "train" then
     trainData, trainLabel = load_data("train")
     testData, testLabel = load_data("test")
     fp_err = io.open("result/loss.txt","a")
-    while tot_iter <= 64e3 do
+    while tot_iter <= iterLimit do
         train(trainData, trainLabel)
         err = tot_error/cnt_error
         fp_err:write(err,"\n")

@@ -63,7 +63,7 @@ function train(trainData, trainLabel)
           
             --[===[
             if t==1 and i<t+20 then
-                img = torch.Tensor(3,32,32)
+                img = torch.Tensor(3,inputSz,inputSz)
                 img[1] = input[1]
                 img[2] = input[2]
                 img[3] = input[3]

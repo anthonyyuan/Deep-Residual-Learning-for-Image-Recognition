@@ -11,11 +11,10 @@ function test(testData, testLabel)
     end
 
     model:evaluate()
-    testDataSz = testData:size()[1]
 
     print('==> testing:')
     
-    for t = 1,testDataSz,testBatchSz do
+    for t = 1,testSz,testBatchSz do
         
         local input = testData[{{t,t+testBatchSz-1},{}}]
         local target = testLabel[{{t,t+testBatchSz-1}}]

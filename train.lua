@@ -111,7 +111,7 @@ function train(trainData, trainLabel)
          optimMethod(feval, params, optimState)
         
         if tot_iter % 100 == 0 then
-            print("iteration: " .. tot_iter .. "/" .. 64e3 .. " batch: " ..  t .. "/" .. trainSz .. " loss: " .. tot_error/cnt_error)
+            print("iteration: " .. tot_iter .. "/" .. tostring(iterLimit) .. " batch: " ..  t .. "/" .. trainSz .. " loss: " .. tot_error/cnt_error)
         end
         tot_iter = tot_iter + 1
 

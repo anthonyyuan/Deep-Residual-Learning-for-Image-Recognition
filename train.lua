@@ -101,6 +101,7 @@ function train(trainData, trainLabel)
                           confusion:add(output[i], conf_target)
                        end
                        model:backward(inputs,df_do)
+                       f = f/curBatchDim
                        gradParams:div(curBatchDim)
                        tot_error = tot_error + f
                        cnt_error = cnt_error + 1

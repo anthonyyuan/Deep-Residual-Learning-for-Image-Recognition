@@ -102,7 +102,6 @@ function train(trainData, trainLabel)
                        end
                        model:backward(inputs,df_do)
                        gradParams:div(curBatchDim)
-                       f = f/curBatchDim
                        tot_error = tot_error + f
                        cnt_error = cnt_error + 1
                        return f,gradParams
